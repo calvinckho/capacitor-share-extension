@@ -1,0 +1,47 @@
+{
+  "name": "capacitor-share-extension",
+  "version": "0.0.5",
+  "description": "Capacitor share extension for iOS and Android",
+  "main": "dist/esm/index.js",
+  "types": "dist/esm/index.d.ts",
+  "scripts": {
+    "build": "npm run clean && tsc",
+    "clean": "rm -rf ./dist",
+    "watch": "tsc --watch",
+    "prepublishOnly": "npm run build"
+  },
+  "author": "Calvin Ho",
+  "license": "MIT",
+  "dependencies": {
+    "@capacitor/core": "latest"
+  },
+  "devDependencies": {
+    "typescript": "^2.6.2"
+  },
+  "files": [
+    "dist/",
+    "ios/",
+    "android/",
+    "CapacitorShareExtension.podspec"
+  ],
+  "keywords": [
+    "capacitor",
+    "plugin",
+    "native"
+  ],
+  "capacitor": {
+    "ios": {
+      "src": "ios"
+    },
+    "android": {
+      "src": "android"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/calvinckho/capacitor-share-extension"
+  },
+  "bugs": {
+    "url": "https://github.com/calvinckho/capacitor-share-extension/issues"
+  }
+}
