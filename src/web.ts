@@ -18,6 +18,11 @@ export class ShareExtensionWeb extends WebPlugin implements ShareExtensionPlugin
       console.log('load', options);
       return options;
   }
+
+  async clearNativeUserDefaults(): Promise<any> {
+    console.log('clear completed');
+    return
+  }
 }
 
 const ShareExtension = new ShareExtensionWeb();

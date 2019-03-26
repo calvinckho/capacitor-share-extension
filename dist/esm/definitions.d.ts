@@ -16,4 +16,5 @@ export interface ShareExtensionPlugin {
     }): Promise<{
         key: string;
     }>;
+    clearNativeUserDefaults(): Promise<any>;
 }

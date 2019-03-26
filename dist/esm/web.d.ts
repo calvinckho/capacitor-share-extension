@@ -14,6 +14,7 @@ export declare class ShareExtensionWeb extends WebPlugin implements ShareExtensi
     }): Promise<{
         key: string;
     }>;
+    clearNativeUserDefaults(): Promise<any>;
 }
 declare const ShareExtension: ShareExtensionWeb;
 export { ShareExtension };

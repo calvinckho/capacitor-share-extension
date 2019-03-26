@@ -26,6 +26,12 @@ export class ShareExtensionWeb extends WebPlugin {
             return options;
         });
     }
+    clearNativeUserDefaults() {
+        return __awaiter(this, void 0, void 0, function* () {
+            console.log('clear completed');
+            return;
+        });
+    }
 }
 const ShareExtension = new ShareExtensionWeb();
 export { ShareExtension };
