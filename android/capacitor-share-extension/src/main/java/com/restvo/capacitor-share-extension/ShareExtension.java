@@ -1,4 +1,4 @@
-package com.capacitor.share-extension.plugin;
+package com.capacitor.shareextension.plugin;
 
 import com.getcapacitor.JSObject;
 import com.getcapacitor.NativePlugin;
