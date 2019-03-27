@@ -56,12 +56,6 @@ public class ShareExtension: CAPPlugin {
         UserDefaults.standard.removePersistentDomain(forName: "group.com.restvo.app") // remove user defaults storage
         UserDefaults.standard.synchronize()
 
-        if let read = UserDefaults(suiteName: "group.com.restvo.app") { // try to check if the data persists after clear
-            if let x = read?.object(forKey: "user") { // it should return nil
-                  print("[Share Extension Plugin Native iOS]: clear storage result: ", x!); // print out the test result
-             }
-        }
-
         call.resolve([
            "success": true
         ])
