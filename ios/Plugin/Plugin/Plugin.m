@@ -6,4 +6,5 @@
 CAP_PLUGIN(ShareExtension, "ShareExtension",
            CAP_PLUGIN_METHOD(saveDataToNativeUserDefaults, CAPPluginReturnPromise);
            CAP_PLUGIN_METHOD(loadDataFromNativeUserDefaults, CAPPluginReturnPromise);
+           CAP_PLUGIN_METHOD(clearNativeUserDefaults, CAPPluginReturnPromise);
 )
