@@ -38,9 +38,9 @@ public class ShareExtension: CAPPlugin {
     @objc func loadDataFromNativeUserDefaults(_ call: CAPPluginCall) {
 
         guard let key = call.options["key"] as? String else {
-                    call.reject("Must provide a key")
-                    return
-                }
+            call.reject("Must provide a key")
+            return
+        }
 
         let defaults = UserDefaults(suiteName: "group.com.restvo.app")
         let x = defaults?.object(forKey: key)
