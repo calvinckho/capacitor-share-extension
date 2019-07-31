@@ -9,7 +9,7 @@ export class ShareExtensionWeb extends WebPlugin implements ShareExtensionPlugin
     });
   }
 
-  async saveDataToNativeUserDefaults(options: { key: string, data: any }): Promise<{key: string, data: any}> {
+  async saveDataToKeychain(options: { key: string, data: any }): Promise<{key: string, data: any}> {
     console.log('save', options);
     return options;
   }

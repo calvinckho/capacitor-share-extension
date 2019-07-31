@@ -1,6 +1,6 @@
 {
   "name": "capacitor-share-extension",
-  "version": "0.0.13",
+  "version": "0.0.15",
   "description": "Capacitor share extension for iOS and Android",
   "main": "dist/esm/index.js",
   "types": "dist/esm/index.d.ts",

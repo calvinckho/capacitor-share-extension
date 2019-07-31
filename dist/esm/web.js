@@ -14,7 +14,7 @@ export class ShareExtensionWeb extends WebPlugin {
             platforms: ['web']
         });
     }
-    saveDataToNativeUserDefaults(options) {
+    saveDataToKeychain(options) {
         return __awaiter(this, void 0, void 0, function* () {
             console.log('save', options);
             return options;

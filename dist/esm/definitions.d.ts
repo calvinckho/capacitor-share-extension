@@ -4,7 +4,7 @@ declare global {
     }
 }
 export interface ShareExtensionPlugin {
-    saveDataToNativeUserDefaults(options: {
+    saveDataToKeychain(options: {
         key: string;
         data: any;
     }): Promise<{

@@ -2,7 +2,7 @@ import { WebPlugin } from '@capacitor/core';
 import { ShareExtensionPlugin } from './definitions';
 export declare class ShareExtensionWeb extends WebPlugin implements ShareExtensionPlugin {
     constructor();
-    saveDataToNativeUserDefaults(options: {
+    saveDataToKeychain(options: {
         key: string;
         data: any;
     }): Promise<{
