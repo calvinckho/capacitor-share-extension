@@ -1,6 +1,6 @@
 {
   "name": "capacitor-share-extension",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "description": "Capacitor share extension for iOS and Android",
   "main": "dist/esm/index.js",
   "types": "dist/esm/index.d.ts",
@@ -10,7 +10,7 @@
     "watch": "tsc --watch",
     "prepublishOnly": "npm run build"
   },
-  "author": "Calvin Ho",
+  "author": "Calvin Ho, Jonathan Date-Chong",
   "license": "MIT",
   "dependencies": {
     "@capacitor/core": "latest"
