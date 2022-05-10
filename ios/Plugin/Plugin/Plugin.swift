@@ -30,9 +30,7 @@ public class ShareExtension: CAPPlugin {
 
         print("[Share Extension Plugin Native iOS]: reading... ", key);
 
-        call.resolve([
-           "success": true
-        ])
+        call.resolve()
     }
 
     @objc func saveDataToKeychain(_ call: CAPPluginCall) {
@@ -48,38 +46,30 @@ public class ShareExtension: CAPPlugin {
             }
 
             print("[Share Extension Plugin Native iOS]: saving to keychain... ", key, data);
-            print(key)
+
             if let dataFromString = (data as! String).data(using: String.Encoding.utf8, allowLossyConversion: false) {
-                        print(dataFromString)
-                        // Instantiate a new default keychain query
-                        let keychainQuery: [String: Any] = [kSecClass as String: kSecClassGenericPassword,
-                                                            kSecAttrService as String: key,
-                                                            kSecValueData as String: dataFromString
-                        ]
+                //print(dataFromString)
+                // Instantiate a new default keychain query
+                let keychainQuery: [String: Any] = [kSecClass as String: kSecClassGenericPassword,
+                                                    kSecAttrService as String: key,
+                                                    kSecValueData as String: dataFromString
+                ]
 
-                        SecItemDelete(keychainQuery as CFDictionary)
-                        // Add the new keychain item
-                        let status = SecItemAdd(keychainQuery as CFDictionary, nil)
+                SecItemDelete(keychainQuery as CFDictionary)
+                // Add the new keychain item
+                let status = SecItemAdd(keychainQuery as CFDictionary, nil)
 
-                        if (status != errSecSuccess) {    // Always check the status
-                            /*if let err = SecCopyErrorMessageString(status, nil) {
-                                print("Write failed: \(err)")
-                            }*/
-                            print("Write failed")
-                        }
-                        else{
-                            print("Write Success")
-                        }
-                    }
-            else{
-                    print("dataFromString failed")
+                if (status != errSecSuccess) {    // Always check the status
+                    /*if let err = SecCopyErrorMessageString(status, nil) {
+                        print("Write failed: \(err)")
+                    }*/
+                    print("Write failed")
+                } else {
+                    print("Write Success")
                 }
-
-
-        
-        
-        
-        
+            } else {
+                print("dataFromString failed")
+            }
         
         let getquery: [String: Any] = [kSecClass as String: kSecClassGenericPassword,
                                        kSecAttrService as String: key,
@@ -94,39 +84,32 @@ public class ShareExtension: CAPPlugin {
         let status: OSStatus = SecItemCopyMatching(getquery as CFDictionary, &dataTypeRef)
         
         var contentsOfKeychain: String?
-        //print(status)
-        //print(dataTypeRef)
         if status == errSecSuccess {
             if let retrievedData = dataTypeRef as? Data {
                 contentsOfKeychain = String(data: retrievedData, encoding: String.Encoding.utf8)
-            }
-            else{
+            } else {
                 print("Error converting data. Status code \(status)")
             }
         }
         else {
             print("Nothing was retrieved from the keychain. Status code \(status)")
         }
-        print(contentsOfKeychain)
-        
-
-            }
+        call.resolve("Write to Keychain Success")
+    }
      
 
     @objc func loadDataFromNativeUserDefaults(_ call: CAPPluginCall) {
 
         guard let key = call.options["key"] as? String else {
-                    call.reject("Must provide a key")
-                    return
-                }
+            call.reject("Must provide a key")
+            return
+        }
 
         let defaults = UserDefaults(suiteName: "group.com.restvo.app")
         let x = defaults?.object(forKey: key)
         print(x) //read back the data to console log
 
-        call.resolve([
-           "success": true
-        ])
+        call.resolve()
     }
 
     @objc func clearNativeUserDefaults(_ call: CAPPluginCall) {
@@ -134,8 +117,6 @@ public class ShareExtension: CAPPlugin {
         UserDefaults.standard.removePersistentDomain(forName: "group.com.restvo.app") // remove user defaults storage
         UserDefaults.standard.synchronize()
 
-        call.resolve([
-           "success": true
-        ])
+        call.resolve()
     }
 }
