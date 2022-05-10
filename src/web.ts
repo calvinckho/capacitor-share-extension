@@ -9,9 +9,9 @@ export class ShareExtensionWeb extends WebPlugin implements ShareExtensionPlugin
     });
   }
 
-  async saveDataToKeychain(options: { key: string, data: any }): Promise<{key: string, data: any}> {
+  async saveDataToKeychain(options: { key: string, data: any }): Promise<string> {
     console.log('save', options);
-    return options;
+    return 'not implemented yet for web';
   }
 
   async loadDataFromNativeUserDefaults(options: { key: string }): Promise<{key: string}> {
