@@ -1,8 +1,3 @@
-declare global {
-    interface PluginRegistry {
-        ShareExtension?: ShareExtensionPlugin;
-    }
-}
 export interface ShareExtensionPlugin {
     saveDataToKeychain(options: {
         key: string;
