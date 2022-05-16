@@ -14,13 +14,8 @@ export class ShareExtensionWeb extends WebPlugin implements ShareExtensionPlugin
     return 'not implemented yet for web';
   }
 
-  async loadDataFromNativeUserDefaults(options: { key: string }): Promise<{key: string}> {
-      console.log('load', options);
-      return options;
-  }
-
-  async clearNativeUserDefaults(): Promise<any> {
-    console.log('clear completed');
+  async clearKeychainData(key: string): Promise<any> {
+    console.log('clear completed', key);
     return
   }
 }
