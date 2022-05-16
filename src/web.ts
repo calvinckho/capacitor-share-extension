@@ -14,8 +14,8 @@ export class ShareExtensionWeb extends WebPlugin implements ShareExtensionPlugin
     return 'not implemented yet for web';
   }
 
-  async clearKeychainData(key: string): Promise<any> {
-    console.log('clear completed', key);
+  async clearKeychainData(options: { key: string }): Promise<any> {
+    console.log('clear completed', options);
     return
   }
 }
