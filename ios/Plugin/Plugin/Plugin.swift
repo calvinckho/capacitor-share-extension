@@ -69,7 +69,7 @@ public class ShareExtension: CAPPlugin {
         else {
             print("Nothing was retrieved from the keychain. Status code \(status)")
         }
-        call.resolve("Write to Keychain Success")
+        call.resolve()
     }
 
     @objc func clearKeychainData(_ call: CAPPluginCall) {
@@ -84,7 +84,7 @@ public class ShareExtension: CAPPlugin {
         ]
         let status: OSStatus = SecItemDelete(query as CFDictionary)
         if status == errSecSuccess || status == errSecItemNotFound {
-            call.resolve("Success in clearing keychain entry for key ", key)
+            call.resolve()
         } else {
             call.reject("Failed to clear keychain entry for key ", key)
         }
