@@ -77,6 +77,7 @@ public class ShareExtension: CAPPlugin {
         guard let key = call.options["key"] as? String else {
             call.reject("Must provide a key")
             return
+        }
 
         let query: [String: Any] = [kSecClass as String: kSecClassGenericPassword,
                                        kSecAttrService as String: key
