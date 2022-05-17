@@ -6,7 +6,7 @@
 
 <img src="https://img.shields.io/npm/v/calvinckho/capacitor-share-extension?style=flat-square" />
 
-This package demonstrates how to add share extension to native deployments for Restvo, a Ionic app.
+This package supports share extension that requires storing and clearing the auth token in the iOS keychain.
 
 ## Installation
 ```
@@ -30,7 +30,7 @@ try {
     
     // when user is about to log out, remove the token from iOS Keychain
     try {
-        await ShareExtension.clearNativeUserDefaults();
+        await ShareExtension.clearKeychainData( { key: 'token' });
     } catch (err) {
         console.log(err);
     }
