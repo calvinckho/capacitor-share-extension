@@ -1,7 +1,7 @@
 {
   "name": "capacitor-share-extension",
   "version": "1.0.0",
-  "description": "Capacitor share extension for iOS and Android",
+  "description": "Capacitor share extension that saves an auth token in the keychain for iOS",
   "main": "dist/esm/index.js",
   "types": "dist/esm/index.d.ts",
   "scripts": {
