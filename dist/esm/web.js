@@ -18,18 +18,12 @@ export class ShareExtensionWeb extends WebPlugin {
     saveDataToKeychain(options) {
         return __awaiter(this, void 0, void 0, function* () {
             console.log('save', options);
-            return options;
+            return 'not implemented yet for web';
         });
     }
-    loadDataFromNativeUserDefaults(options) {
+    clearKeychainData(options) {
         return __awaiter(this, void 0, void 0, function* () {
-            console.log('load', options);
-            return options;
-        });
-    }
-    clearNativeUserDefaults() {
-        return __awaiter(this, void 0, void 0, function* () {
-            console.log('clear completed');
+            console.log('clear completed', options);
             return;
         });
     }

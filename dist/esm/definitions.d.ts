@@ -2,14 +2,8 @@ export interface ShareExtensionPlugin {
     saveDataToKeychain(options: {
         key: string;
         data: any;
-    }): Promise<{
+    }): Promise<string>;
+    clearKeychainData(options: {
         key: string;
-        data: any;
-    }>;
-    loadDataFromNativeUserDefaults(options: {
-        key: string;
-    }): Promise<{
-        key: string;
-    }>;
-    clearNativeUserDefaults(): Promise<any>;
+    }): Promise<any>;
 }
