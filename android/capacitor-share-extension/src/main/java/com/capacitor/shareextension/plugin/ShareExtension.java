@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.OpenableColumns;
+import android.util.Log;
 
 import com.getcapacitor.JSArray;
 import com.getcapacitor.JSObject;
@@ -13,6 +14,7 @@ import com.getcapacitor.PluginCall;
 import com.getcapacitor.PluginMethod;
 import com.getcapacitor.annotation.CapacitorPlugin;
 
+import com.getcapacitor.FileUtils;
 import org.apache.commons.io.IOUtils;
 
 import java.io.File;
@@ -23,6 +25,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+
 @CapacitorPlugin()
 public class ShareExtension extends Plugin {
 
@@ -31,6 +34,7 @@ public class ShareExtension extends Plugin {
         Intent intent = bridge.getActivity().getIntent();
         String action = intent.getAction();
         String type = intent.getType();
+        //Log.v("SHARE", "Intent received, " + type);
         if (Intent.ACTION_SEND.equals(action) && type != null) {
             call.resolve(readItemAt(intent, type, 0));
         } else if (Intent.ACTION_SEND_MULTIPLE.equals(action) && type != null) {
@@ -61,14 +65,14 @@ public class ShareExtension extends Plugin {
             uri = intent.getClipData().getItemAt(index).getUri();
 
         String url = null;
-
+        Uri copyfileUri = null;
         //Handling web links as url
         if ("text/plain".equals(type) && intent.getStringExtra(Intent.EXTRA_TEXT) != null) {
             url = intent.getStringExtra(Intent.EXTRA_TEXT);
         }
         //Handling files as url
         else if (uri != null) {
-            final Uri copyfileUri = copyfile(uri);
+            copyfileUri = copyfile(uri);
             url = (copyfileUri != null) ? copyfileUri.toString() : null;
         }
 
@@ -78,7 +82,8 @@ public class ShareExtension extends Plugin {
         ret.put("title", title);
         ret.put("description", null);
         ret.put("type", type);
-        ret.put("url", url);
+        ret.put("path", url);
+        ret.put("webPath", FileUtils.getPortablePath(getContext(), bridge.getLocalUrl(), copyfileUri));
         return ret;
     }
 
