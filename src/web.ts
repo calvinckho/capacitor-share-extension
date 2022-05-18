@@ -9,6 +9,13 @@ export class ShareExtensionWeb extends WebPlugin implements ShareExtensionPlugin
     });
   }
 
+  async checkSendIntentReceived(): Promise<{ title: string }> {
+    return {title: null};
+  }
+
+  finish(): void {
+  }
+
   async saveDataToKeychain(options: { key: string, data: any }): Promise<string> {
     console.log('save', options);
     return 'not implemented yet for web';

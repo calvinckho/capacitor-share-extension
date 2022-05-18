@@ -19,6 +19,28 @@ npm i git+ssh://git@github.com/calvinckho/capacitor-share-extension#capacitor-3
 import { ShareExtension } from 'capacitor-share-extension';
 
 try {
+    // android methods
+    window.addEventListener("sendIntentReceived", async () => {
+        try {
+            const result: any = await ShareExtension.checkSendIntentReceived();
+            if (result) {
+                console.log('SendIntent received');
+                console.log(JSON.stringify(result));
+            }
+            if (result.url) {
+                let resultUrl = decodeURIComponent(result.url);
+                Filesystem.readFile({path: resultUrl})
+                    .then((content) => {
+                        console.log(content.data);
+                    })
+                    .catch((err) => console.error(err));
+            }
+        } catch (err) {
+            console.log(err);
+        }
+    })
+    
+    // iOS methods
     try {
         // load an authentication token
         const token = 'token XXYYZZ';
