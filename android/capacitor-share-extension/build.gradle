@@ -28,6 +28,9 @@ android {
     lintOptions {
         abortOnError false
     }
+    dependencies{
+        implementation 'commons-io:commons-io:2.5'
+    }
 }
 
 repositories {
