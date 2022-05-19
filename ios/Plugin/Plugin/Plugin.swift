@@ -8,6 +8,41 @@ import Capacitor
 @objc(ShareExtension)
 public class ShareExtension: CAPPlugin {
 
+    let store = ShareStore.store
+
+    @objc func checkSendIntentReceived(_ call: CAPPluginCall) {
+        print("ios checking send intent")
+        if !store.processed {
+            let firstItem: JSObject? = store.shareItems.first
+            let additionalItems: Array<JSObject> = store.shareItems.count > 1 ? Array(store.shareItems[1...]) : []
+
+            call.resolve([
+                "title": firstItem?["title"] ?? "",
+                "description": firstItem?["description"] ?? "",
+                "type": firstItem?["type"] ?? "",
+                "url": firstItem?["url"] ?? "",
+                "webPath": firstItem?["webPath"] ?? "",
+                "additionalItems": additionalItems
+            ])
+            store.processed = true
+        } else {
+            call.reject("No processing needed.")
+        }
+    }
+
+    @objc func finish(_ call: CAPPluginCall) {
+        call.resolve();
+    }
+
+    public override func load() {
+        let nc = NotificationCenter.default
+        nc.addObserver(self, selector: #selector(eval), name: Notification.Name("triggerSendIntent"), object: nil)
+    }
+
+    @objc open func eval(){
+        self.bridge?.eval(js: "window.dispatchEvent(new Event('sendIntentReceived'))");
+    }
+
     @objc func saveDataToKeychain(_ call: CAPPluginCall) {
 
             guard let key = call.options["key"] as? String else {
@@ -89,62 +124,4 @@ public class ShareExtension: CAPPlugin {
             call.reject("Failed to clear keychain entry for key ", key)
         }
     }
-
-    // TODO: obsolete code
-    @objc func saveDataToNativeUserDefaults(_ call: CAPPluginCall) {
-
-        guard let key = call.options["key"] as? String else {
-            call.reject("Must provide a key")
-            return
-        }
-
-        guard let data = call.options["data"] else {
-            call.reject("Must provide data")
-            return
-        }
-
-        print("[Share Extension Plugin Native iOS]: saving... ", key, data);
-
-        let defaults = UserDefaults(suiteName: "group.com.restvo.app");
-        //defaults?.set(data, forKey: key); // I can save simple data type with user defaults, but not JSON objects
-
-        let read = UserDefaults(suiteName: "group.com.restvo.app")
-        let x = read?.object(forKey: key)
-
-        print("[Share Extension Plugin Native iOS]: reading... ", key);
-
-        call.resolve()
-    }
-
-
-    @objc func loadDataFromNativeUserDefaults(_ call: CAPPluginCall) {
-
-        guard let key = call.options["key"] as? String else {
-            call.reject("Must provide a key")
-            return
-        }
-
-        let defaults = UserDefaults(suiteName: "group.com.restvo.app")
-        let x = defaults?.object(forKey: key)
-        print(x) //read back the data to console log
-
-        call.resolve()
-    }
-
-    @objc func clearNativeUserDefaults(_ call: CAPPluginCall) {
-
-        UserDefaults.standard.removePersistentDomain(forName: "group.com.restvo.app") // remove user defaults storage
-        UserDefaults.standard.synchronize()
-
-        let getquery: [String: Any] = [kSecClass as String: kSecClassGenericPassword,
-                                       kSecAttrService as String: "token"
-        ]
-        let status: OSStatus = SecItemDelete(getquery as CFDictionary)
-        if status == errSecSuccess || status == errSecItemNotFound {
-            print("success")
-        }
-        call.resolve()
-    }
-
-
 }

@@ -9,7 +9,7 @@ export interface Intent {
     title?: string;
     description?: string;
     type?: string;
-    path?: string;
+    url?: string;
     webPath?: string;
     additionalItems?: any;
 }

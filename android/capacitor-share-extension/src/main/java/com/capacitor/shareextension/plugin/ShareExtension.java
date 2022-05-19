@@ -82,7 +82,7 @@ public class ShareExtension extends Plugin {
         ret.put("title", title);
         ret.put("description", null);
         ret.put("type", type);
-        ret.put("path", url);
+        ret.put("url", url);
         ret.put("webPath", FileUtils.getPortablePath(getContext(), bridge.getLocalUrl(), copyfileUri));
         return ret;
     }
