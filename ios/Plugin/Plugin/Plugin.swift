@@ -11,18 +11,12 @@ public class ShareExtension: CAPPlugin {
     let store = ShareStore.store
 
     @objc func checkSendIntentReceived(_ call: CAPPluginCall) {
-        print("ios checking send intent")
         if !store.processed {
-            let firstItem: JSObject? = store.shareItems.first
-            let additionalItems: Array<JSObject> = store.shareItems.count > 1 ? Array(store.shareItems[1...]) : []
+            //let firstItem: JSObject? = store.shareItems.first
+            let payload: Array<JSObject> = store.shareItems.count > 0 ? Array(store.shareItems[0...]) : []
 
             call.resolve([
-                "title": firstItem?["title"] ?? "",
-                "description": firstItem?["description"] ?? "",
-                "type": firstItem?["type"] ?? "",
-                "url": firstItem?["url"] ?? "",
-                "webPath": firstItem?["webPath"] ?? "",
-                "additionalItems": additionalItems
+                "payload": payload
             ])
             store.processed = true
         } else {

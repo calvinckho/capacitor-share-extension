@@ -34,17 +34,17 @@ public class ShareExtension extends Plugin {
         Intent intent = bridge.getActivity().getIntent();
         String action = intent.getAction();
         String type = intent.getType();
+        List payload = new ArrayList<JSObject>();
         //Log.v("SHARE", "Intent received, " + type);
         if (Intent.ACTION_SEND.equals(action) && type != null) {
-            call.resolve(readItemAt(intent, type, 0));
+            payload.add(readItemAt(intent, type, 0));
+            ret.put("payload", new JSArray(payload));
+            call.resolve(ret);
         } else if (Intent.ACTION_SEND_MULTIPLE.equals(action) && type != null) {
-            JSObject ret = readItemAt(intent, type, 0);
-            List additionalItems = new ArrayList<JSObject>();
-
-            for (int index = 1; index < intent.getClipData().getItemCount(); index++) {
-                additionalItems.add(readItemAt(intent, type, index));
+            for (int index = 0; index < intent.getClipData().getItemCount(); index++) {
+                payload.add(readItemAt(intent, type, index));
             }
-            ret.put("additionalItems", new JSArray(additionalItems));
+            ret.put("payload", new JSArray(payload));
             call.resolve(ret);
         } else {
             call.reject("No processing needed");

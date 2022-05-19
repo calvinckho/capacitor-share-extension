@@ -15,6 +15,13 @@ export class ShareExtensionWeb extends WebPlugin {
             platforms: ['web']
         });
     }
+    checkSendIntentReceived() {
+        return __awaiter(this, void 0, void 0, function* () {
+            return { title: null };
+        });
+    }
+    finish() {
+    }
     saveDataToKeychain(options) {
         return __awaiter(this, void 0, void 0, function* () {
             console.log('save', options);
