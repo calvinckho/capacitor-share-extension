@@ -35,6 +35,7 @@ public class ShareExtension extends Plugin {
         String action = intent.getAction();
         String type = intent.getType();
         List payload = new ArrayList<JSObject>();
+        JSObject ret = new JSObject();
         //Log.v("SHARE", "Intent received, " + type);
         if (Intent.ACTION_SEND.equals(action) && type != null) {
             payload.add(readItemAt(intent, type, 0));
