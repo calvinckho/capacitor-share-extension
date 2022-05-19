@@ -10,7 +10,7 @@ This Capacitor Plugin provides native capabilities to retrieve media files sent 
 
 ## Installation
 ```
-npm i git+ssh://git@github.com/calvinckho/capacitor-share-extension#capacitor-3
+npm i git+ssh://git@github.com/calvinckho/capacitor-share-extension
 ```
 
 
