@@ -144,7 +144,7 @@ ShareExtension.finish();
 
 Create a new "Share Extension" in Xcode ([Creating an App extension](https://developer.apple.com/library/archive/documentation/General/Conceptual/ExtensibilityPG/ExtensionCreation.html#//apple_ref/doc/uid/TP40014214-CH5-SW1))
 
-Set the activation rules in the extension's Info.plist, so that your app will be displayed as an option in the share view. To add more types, see [here](https://developer.apple.com/documentation/uniformtypeidentifiers/system_declared_uniform_type_identifiers).
+Set the activation rules in the extension's Info.plist, so that your app will be displayed as an option in the share view. To add more types, see [here](https://developer.apple.com/documentation/uniformtypeidentifiers/system_declared_uniform_type_identifiers). Also, set the iOS target to iOS 13+.
 
 ```
 ...
