@@ -170,7 +170,7 @@ Set the activation rules in the extension's Info.plist, so that your app will be
 </dict>
 ...            
 ```
-Overwrite ShareViewController with this code:
+Overwrite ShareViewController.swift with this code. In Target - [This Extension's Name] - Build Settings, set the iOS Deployment Target to iOS 13 or higher, as the syntax in the following code is not compatible with older iOS version.
 
 ```swift
 import UIKit
