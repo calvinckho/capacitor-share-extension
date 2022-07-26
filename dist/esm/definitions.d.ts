@@ -1,3 +1,8 @@
+declare global {
+    interface PluginRegistry {
+        ShareExtension?: ShareExtensionPlugin;
+    }
+}
 export interface ShareExtensionPlugin {
     checkSendIntentReceived(): Promise<Intent>;
     finish(): void;

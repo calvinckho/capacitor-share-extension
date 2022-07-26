@@ -5,7 +5,6 @@ export default {
   output: {
     file: 'dist/plugin.js',
     format: 'iife',
-    inlineDynamicImports: true,
     name: 'capacitorPlugin',
     sourcemap: true
   },
