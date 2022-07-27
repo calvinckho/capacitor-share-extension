@@ -9,7 +9,7 @@ public class ShareExtensionActivity extends BridgeActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        registerPlugin(ShareExtension.class);
+        //registerPlugin(ShareExtension.class);
     }
 
     @Override

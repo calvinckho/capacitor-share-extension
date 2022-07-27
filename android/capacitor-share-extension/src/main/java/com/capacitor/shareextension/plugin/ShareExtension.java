@@ -7,12 +7,13 @@ import android.net.Uri;
 import android.provider.OpenableColumns;
 import android.util.Log;
 
+import com.getcapacitor.NativePlugin;
 import com.getcapacitor.JSArray;
 import com.getcapacitor.JSObject;
 import com.getcapacitor.Plugin;
 import com.getcapacitor.PluginCall;
 import com.getcapacitor.PluginMethod;
-import com.getcapacitor.annotation.CapacitorPlugin;
+//import com.getcapacitor.annotation.CapacitorPlugin;
 
 import com.getcapacitor.FileUtils;
 import org.apache.commons.io.IOUtils;
@@ -26,7 +27,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-@CapacitorPlugin()
+@NativePlugin()
 public class ShareExtension extends Plugin {
 
     @PluginMethod

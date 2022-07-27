@@ -109,10 +109,12 @@ import com.getcapacitor.BridgeActivity;
 
 public class MainActivity extends BridgeActivity {
    @Override
-   public void onCreate(Bundle savedInstanceState) {
-     super.onCreate(savedInstanceState);
-     ...
-   }
+   super.onCreate(savedInstanceState);
+
+   this.init(savedInstanceState, new ArrayList<Class<? extends Plugin>>() {{
+      ...
++     add(ShareExtension.class);
+   }});
    
 +  @Override
 +  protected void onNewIntent(Intent intent) {
@@ -380,11 +382,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // ...
 
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-            
-        var success = true
-        if CAPBridge.handleOpenUrl(url, options) {
-            success = ApplicationDelegateProxy.shared.application(app, open: url, options: options)
-        }
+        typealias JSObject = [String:Any]            
+        var success = CAPBridge.handleOpenUrl(url, options)
     
         guard let components = NSURLComponents(url: url, resolvingAgainstBaseURL: true),
               let params = components.queryItems else {
