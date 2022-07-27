@@ -10,6 +10,7 @@ public final class ShareStore {
         self.processed = false
     }
 
+    public typealias JSObject = [String:Any]
     public var shareItems: [JSObject]
 
     public var processed: Bool

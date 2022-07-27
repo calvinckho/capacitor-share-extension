@@ -10,13 +10,14 @@ This Capacitor Plugin provides native capabilities to retrieve media files sent 
 
 ## Installation
 ```
-npm i git+ssh://git@github.com/calvinckho/capacitor-share-extension
+npm i git+ssh://git@github.com/calvinckho/capacitor-share-extension#capacitor-2
 ```
 
 
-## Capacitor 3 Usage
+## Capacitor 2 Usage
 ```ts
-import { ShareExtension } from 'capacitor-share-extension';
+import 'capacitor-share-extension';
+const { ShareExtension } = Plugins;
 
 // run this as part of the app launch
 if (this.platform.is('cordova') && Capacitor.isPluginAvailable('ShareExtension')) {

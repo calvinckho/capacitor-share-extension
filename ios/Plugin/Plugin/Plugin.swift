@@ -9,6 +9,7 @@ import Capacitor
 public class ShareExtension: CAPPlugin {
 
     let store = ShareStore.store
+    typealias JSObject = [String:Any]
 
     @objc func checkSendIntentReceived(_ call: CAPPluginCall) {
         if !store.processed {
