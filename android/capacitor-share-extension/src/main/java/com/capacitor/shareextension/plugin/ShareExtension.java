@@ -56,6 +56,10 @@ public class ShareExtension extends Plugin {
     @PluginMethod
     public void finish(PluginCall call) {
         bridge.getActivity().finish();
+
+        JSObject ret = new JSObject();
+        ret.put("success", true);
+        call.resolve(ret);
     }
 
     private JSObject readItemAt(Intent intent, String type, int index) {
