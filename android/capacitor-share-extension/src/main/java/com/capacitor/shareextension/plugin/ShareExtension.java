@@ -85,11 +85,16 @@ public class ShareExtension extends Plugin {
         if (title == null && uri != null)
             title = readFileName(uri);
 
+        String webPath = "";
+        if (!("text/plain".equals(type))) {
+            webPath = FileUtils.getPortablePath(getContext(), bridge.getLocalUrl(), copyfileUri);
+        }
+
         ret.put("title", title);
         ret.put("description", null);
         ret.put("type", type);
         ret.put("url", url);
-        ret.put("webPath", FileUtils.getPortablePath(getContext(), bridge.getLocalUrl(), copyfileUri));
+        ret.put("webPath", webPath);
         return ret;
     }
 
