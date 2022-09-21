@@ -1,10 +1,10 @@
 buildscript {
     repositories {
-        jcenter()
+        mavenCentral()
         google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.6.1'
+        classpath 'com.android.tools.build:gradle:7.2.1'
     }
 }
 
@@ -35,11 +35,7 @@ android {
 
 repositories {
     google()
-    jcenter()
     mavenCentral()
-    maven {
-        url  "https://dl.bintray.com/ionic-team/capacitor"
-    }
 }
 
 

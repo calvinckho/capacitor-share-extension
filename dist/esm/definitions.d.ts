@@ -10,5 +10,10 @@ export interface ShareExtensionPlugin {
     }): Promise<any>;
 }
 export interface Intent {
-    payload?: any;
+    title?: string;
+    description?: string;
+    type?: string;
+    url?: string;
+    webPath?: string;
+    additionalItems?: any;
 }
