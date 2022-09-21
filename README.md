@@ -8,9 +8,45 @@
 
 This Capacitor Plugin provides native capabilities to retrieve media files sent via iOS Share Extension and Android Send Intent events
 
+## Compatibility to Capacitor Versions
+
+<table>
+  <thead>
+    <tr>
+      <th>Capacitor</th>
+      <th>capacitor-jitsi-meet</th>
+      <th>supported</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        v3
+      </td>
+      <td>
+        <= 1.1.0
+      </td>
+      <td>
+        current
+      </td>
+    </tr>
+    <tr>
+      <td>
+        v2
+      </td>
+      <td>
+        <= 0.1.0
+      </td>
+      <td>
+        expired
+      </td>
+    </tr>
+  </tbody>
+</table>
+
 ## Installation
 ```
-npm i git+ssh://git@github.com/calvinckho/capacitor-share-extension
+npm i capacitor-share-extension
 ```
 
 
