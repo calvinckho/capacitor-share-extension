@@ -4,7 +4,7 @@
 
 # @calvinckho/capacitor-share-extension
 
-<img src="https://img.shields.io/npm/v/calvinckho/capacitor-share-extension?style=flat-square" />
+<img src="https://img.shields.io/npm/v/capacitor-share-extension?style=flat-square" />
 
 This Capacitor Plugin provides native capabilities to retrieve media files sent via iOS Share Extension and Android Send Intent events
 
@@ -14,17 +14,35 @@ This Capacitor Plugin provides native capabilities to retrieve media files sent 
   <thead>
     <tr>
       <th>Capacitor</th>
-      <th>capacitor-jitsi-meet</th>
+      <th>branch</th>
+      <th>npm</th>
       <th>supported</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>
+        v4
+      </td>
+      <td>
+        #capacitor-4
+      </td>
+      <td>
+        2.x
+      </td>
+      <td>
+        current
+      </td>
+    </tr>
+    <tr>
+      <td>
         v3
       </td>
       <td>
-        <= 1.1.0
+        #capacitor-3
+      </td>
+      <td>
+        1.x
       </td>
       <td>
         current
@@ -35,25 +53,43 @@ This Capacitor Plugin provides native capabilities to retrieve media files sent 
         v2
       </td>
       <td>
-        <= 0.1.0
+        #capacitor-2
       </td>
       <td>
-        expired
+        0.x
+      </td>
+      <td>
+        current
       </td>
     </tr>
   </tbody>
 </table>
 
 ## Installation
+
+### Github Branch
 ```
-npm i capacitor-share-extension
+npm i git+ssh://git@github.com/calvinckho/capacitor-share-extension#[branch-name]]
 ```
 
+### NPM
 
-## Capacitor 3 Usage
+```
+npm i capacitor-share-extension@[version number]
+```
+
+## Usage
+Capacitor 2:
+```ts
+import 'capacitor-share-extension';
+const { ShareExtension } = Plugins;
+```
+Capacitor 3 & 4:
 ```ts
 import { ShareExtension } from 'capacitor-share-extension';
+```
 
+```ts
 // run this as part of the app launch
 if (this.platform.is('cordova') && Capacitor.isPluginAvailable('ShareExtension')) {
     window.addEventListener('sendIntentReceived',  () => {
