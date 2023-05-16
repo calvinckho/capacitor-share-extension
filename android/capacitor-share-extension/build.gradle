@@ -11,6 +11,7 @@ buildscript {
 apply plugin: 'com.android.library'
 
 android {
+    namespace 'com.capacitor.shareextension.plugin'
     compileSdkVersion rootProject.ext.compileSdkVersion
         defaultConfig {
             minSdkVersion rootProject.ext.minSdkVersion
