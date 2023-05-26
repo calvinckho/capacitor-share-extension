@@ -1,6 +1,6 @@
 {
   "name": "capacitor-share-extension",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "A Capacitor Plugin that provides native capabilities to retrieve media files sent via iOS Share Extension and Android Send Intent events",
   "main": "dist/esm/index.js",
   "types": "dist/esm/index.d.ts",

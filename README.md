@@ -22,6 +22,20 @@ This Capacitor Plugin provides native capabilities to retrieve media files sent 
   <tbody>
     <tr>
       <td>
+        v5
+      </td>
+      <td>
+        #capacitor-5
+      </td>
+      <td>
+        3.x
+      </td>
+      <td>
+        current
+      </td>
+    </tr>
+    <tr>
+      <td>
         v4
       </td>
       <td>
@@ -31,7 +45,7 @@ This Capacitor Plugin provides native capabilities to retrieve media files sent 
         2.x
       </td>
       <td>
-        current
+        until May 31, 2023
       </td>
     </tr>
     <tr>
@@ -45,7 +59,7 @@ This Capacitor Plugin provides native capabilities to retrieve media files sent 
         1.x
       </td>
       <td>
-        current
+        until May 31, 2023
       </td>
     </tr>
     <tr>
@@ -59,7 +73,7 @@ This Capacitor Plugin provides native capabilities to retrieve media files sent 
         0.x
       </td>
       <td>
-        current
+        until May 31, 2023
       </td>
     </tr>
   </tbody>
