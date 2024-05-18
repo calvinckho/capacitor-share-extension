@@ -22,6 +22,20 @@ This Capacitor Plugin provides native capabilities to retrieve media files sent 
   <tbody>
     <tr>
       <td>
+        v6
+      </td>
+      <td>
+        #capacitor-6
+      </td>
+      <td>
+        4.x - 6.x
+      </td>
+      <td>
+        current
+      </td>
+    </tr>
+    <tr>
+      <td>
         v5
       </td>
       <td>
@@ -31,7 +45,7 @@ This Capacitor Plugin provides native capabilities to retrieve media files sent 
         3.x
       </td>
       <td>
-        current
+        until May 31, 2024
       </td>
     </tr>
     <tr>
@@ -93,12 +107,8 @@ npm i capacitor-share-extension@[version number]
 ```
 
 ## Usage
-Capacitor 2:
-```ts
-import 'capacitor-share-extension';
-const { ShareExtension } = Plugins;
-```
-Capacitor 3 & 4:
+
+Capacitor 3+:
 ```ts
 import { ShareExtension } from 'capacitor-share-extension';
 ```
