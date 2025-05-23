@@ -2,29 +2,22 @@ import { WebPlugin } from '@capacitor/core';
 import { ShareExtensionPlugin } from './definitions';
 
 export class ShareExtensionWeb extends WebPlugin implements ShareExtensionPlugin {
-  constructor() {
-    super({
-      name: 'ShareExtension',
-      platforms: ['web']
-    });
+  async checkSendIntentReceived(): ReturnType<ShareExtensionPlugin["checkSendIntentReceived"]> {
+    return { payload: [] };
   }
 
-  async checkSendIntentReceived(): Promise<{ title: string }> {
-    return {title: null};
+  async clearKeychainData(): ReturnType<ShareExtensionPlugin["clearKeychainData"]> {
+    return undefined;
   }
 
-  finish(): void {
+  async finish(): ReturnType<ShareExtensionPlugin["finish"]> {
+    return { success: true };
   }
 
-  async saveDataToKeychain(options: { key: string, data: any }): Promise<string> {
-    console.log('save', options);
-    return 'not implemented yet for web';
+  async saveDataToKeychain(): ReturnType<ShareExtensionPlugin["saveDataToKeychain"]> {
+    return "";
   }
 
-  async clearKeychainData(options: { key: string }): Promise<any> {
-    console.log('clear completed', options);
-    return
-  }
 }
 
 const ShareExtension = new ShareExtensionWeb();
