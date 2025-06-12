@@ -445,7 +445,7 @@ class ShareViewController:  UIViewController {
         return shareItem
     }
 
-    // older versions of this plugin used a different implementation for openURL. This version
+    // Older versions of this plugin used a different implementation for openURL. This version
     // works with iOS 18.
     // recommended for example here: https://stackoverflow.com/questions/79002378/ios-18-0-shared-extention-open-app-url-cant-work
     @objc func openURL(_ url: URL) -> Bool {
