@@ -444,12 +444,22 @@ class ShareViewController:  UIViewController {
         }
         return shareItem
     }
-    
+
+    // Older versions of this plugin used a different implementation for openURL. This version
+    // works with iOS 18.
+    // recommended for example here: https://stackoverflow.com/questions/79002378/ios-18-0-shared-extention-open-app-url-cant-work
     @objc func openURL(_ url: URL) -> Bool {
         var responder: UIResponder? = self
         while responder != nil {
             if let application = responder as? UIApplication {
-                return application.perform(#selector(openURL(_:)), with: url) != nil
+                application.open(url, options: [:]) { success in
+                    if success {
+                        print("App opened successfully")
+                    } else {
+                        print("Failed to open app")
+                    }
+                }
+                return true
             }
             responder = responder?.next
         }
