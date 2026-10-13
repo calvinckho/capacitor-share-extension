@@ -7,7 +7,7 @@
     s.homepage = 'https://github.com/calvinckho/capacitor-share-extension'
     s.author = 'Calvin Ho'
     s.source = { :git => 'https://github.com/calvinckho/capacitor-share-extension', :tag => s.version.to_s }
-    s.source_files = 'ios/Plugin/Plugin/**/*.{swift,h,m,c,cc,mm,cpp}'
+    s.source_files = 'ios/Sources/CapacitorShareExtension/**/*.{swift,h,m,c,cc,mm,cpp}'
     s.ios.deployment_target = '15.0'
     s.swift_version = '5.1'
     s.dependency 'Capacitor'

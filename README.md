@@ -106,6 +106,20 @@ npm i git+ssh://git@github.com/calvinckho/capacitor-share-extension#[branch-name
 npm i capacitor-share-extension@[version number]
 ```
 
+### iOS package manager
+
+The iOS plugin ships as a Swift package and as a CocoaPods pod, so it works
+with either package manager. After installing, run:
+
+```
+npx cap sync ios
+```
+
+Capacitor picks up whichever one your app uses — no extra configuration.
+The Swift module is still named `CapacitorShareExtension`, so an existing
+`import CapacitorShareExtension` in your `AppDelegate.swift` keeps working
+after switching your app to SPM.
+
 ## Usage
 
 Capacitor 3+:
